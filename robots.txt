@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://unearned-in.com/sitemap.xml
+Host: https://unearned-in.com
