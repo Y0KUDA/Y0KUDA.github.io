@@ -27,20 +27,20 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-70381d16d90b916de702.js"
+    "url": "webpack-runtime-864ebfd990adc4dd5814.js"
   },
   {
-    "url": "commons-dc9b92e0e05b9f0ecff7.js"
+    "url": "commons-d79b9297793862b91aee.js"
   },
   {
-    "url": "app-05dd4bd85a48033b12c1.js"
+    "url": "app-0cc039fef8debc722cf7.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-8e1bd2058897956a79d3.js"
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-568c113b24a9e8ed8db8.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "d6652ff0e7b8535c9dc42889bb7738df"
+    "revision": "aea27af5c04bd08144a0e9f18fa076f4"
   },
   {
     "url": "manifest.webmanifest",
@@ -50,7 +50,7 @@ self.__precacheManifest = [
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerRoute(/(\.js$|\.css$|static\/)/, new workbox.strategies.CacheFirst(), 'GET');
-workbox.routing.registerRoute(/^https?:.*\page-data\/.*\/page-data\.json/, new workbox.strategies.NetworkFirst(), 'GET');
+workbox.routing.registerRoute(/^https?:.*\page-data\/.*\/page-data\.json/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 workbox.routing.registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 workbox.routing.registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 
@@ -137,7 +137,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-05dd4bd85a48033b12c1.js`))) {
+  if (!resources || !(await caches.match(`/app-0cc039fef8debc722cf7.js`))) {
     return await fetch(event.request)
   }
 
